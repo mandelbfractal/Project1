@@ -7,7 +7,7 @@ from typing import Dict, List, Any, Optional
 from datetime import datetime
 
 from src.core.config import Config, AuthorizationConfig
-from src.core.logger import get_logger
+from src.core.logger import Logger
 from src.utils.validators import TargetValidator, AuthorizationValidator
 from src.utils.helpers import get_timestamp, ensure_directory
 
@@ -18,7 +18,7 @@ class PentestBot:
     def __init__(self, config_file: str = "config/config.yaml"):
         """Initialize the bot"""
         self.config = Config(config_file)
-        self.logger = get_logger(
+        self.logger = Logger.get_instance(
             log_dir=self.config.get_log_dir(),
             log_level=self.config.get_log_level()
         )
