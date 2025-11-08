@@ -1,0 +1,30 @@
+# Authorization Configuration
+# This file tracks authorized targets for penetration testing
+
+# IMPORTANT: Only add targets you have EXPLICIT written permission to test
+# Unauthorized testing is illegal and unethical
+
+authorized_targets:
+  # Example format:
+  # - target: "192.168.1.0/24"
+  #   scope: "full"
+  #   authorization_date: "2025-01-15"
+  #   authorization_by: "John Doe <john@example.com>"
+  #   expiry_date: "2025-12-31"
+  #   notes: "Internal security assessment"
+
+  - target: "localhost"
+    scope: "full"
+    authorization_date: "2025-11-08"
+    authorization_by: "System Administrator"
+    expiry_date: "2099-12-31"
+    notes: "Local testing environment"
+
+  - target: "127.0.0.1"
+    scope: "full"
+    authorization_date: "2025-11-08"
+    authorization_by: "System Administrator"
+    expiry_date: "2099-12-31"
+    notes: "Local testing environment"
+
+# Scope options: full, network-only, web-only, readonly

@@ -1,0 +1,55 @@
+# AI Pentest Bot Configuration
+
+# API Configuration
+api:
+  anthropic_api_key: ""  # Set via environment variable ANTHROPIC_API_KEY
+  model: "claude-sonnet-4-5-20250929"
+  max_tokens: 4096
+
+# Scanning Configuration
+scanning:
+  # Network scanning
+  network:
+    enabled: true
+    timeout: 30
+    max_ports: 1000
+    common_ports: [21, 22, 23, 25, 53, 80, 110, 143, 443, 445, 3306, 3389, 5432, 8080, 8443]
+
+  # Web scanning
+  web:
+    enabled: true
+    timeout: 10
+    max_depth: 3
+    user_agent: "Mozilla/5.0 (compatible; AI-Pentest-Bot/1.0)"
+
+  # Vulnerability scanning
+  vulnerability:
+    enabled: true
+    check_cve: true
+    check_outdated: true
+
+# Authorization
+authorization:
+  require_authorization: true
+  authorization_file: "config/authorization.yaml"
+
+# Reporting
+reporting:
+  output_dir: "reports"
+  formats: ["json", "html", "pdf"]
+  include_remediation: true
+  severity_levels: ["critical", "high", "medium", "low", "info"]
+
+# Logging
+logging:
+  log_dir: "logs"
+  log_level: "INFO"
+  max_log_size: 10485760  # 10MB
+  backup_count: 5
+
+# Safety
+safety:
+  max_concurrent_scans: 10
+  rate_limit: 100  # requests per second
+  blacklist_file: "config/blacklist.txt"
+  require_confirmation: true

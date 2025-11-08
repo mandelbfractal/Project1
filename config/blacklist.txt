@@ -1,0 +1,11 @@
+# Blacklisted targets - NEVER scan these
+# Government and critical infrastructure
+.gov
+.mil
+.edu
+
+# Common sensitive domains
+*.bank
+*.hospital
+*.energy
+*.defense
